@@ -346,6 +346,43 @@ p{
   height: 100%;
   width: 100%;
 }
+/* Mobile support: when .rose has class "open", behave like hover */
+.rose.open > .text {
+  opacity: 1;
+}
+
+/* Make petals bloom on tap too (duplicate hover transforms for .open) */
+.rose.open > .petal:nth-child(1)  { transform: scale(0.06, 0.06) rotate(83deg); }
+.rose.open > .petal:nth-child(2)  { transform: scale(0.12, 0.12) rotate(166deg); }
+.rose.open > .petal:nth-child(3)  { transform: scale(0.18, 0.18) rotate(249deg); }
+.rose.open > .petal:nth-child(4)  { transform: scale(0.24, 0.24) rotate(332deg); }
+.rose.open > .petal:nth-child(5)  { transform: scale(0.30, 0.30) rotate(415deg); }
+.rose.open > .petal:nth-child(6)  { transform: scale(0.36, 0.36) rotate(498deg); }
+.rose.open > .petal:nth-child(7)  { transform: scale(0.42, 0.42) rotate(581deg); }
+.rose.open > .petal:nth-child(8)  { transform: scale(0.48, 0.48) rotate(664deg); }
+.rose.open > .petal:nth-child(9)  { transform: scale(0.54, 0.54) rotate(747deg); }
+.rose.open > .petal:nth-child(10) { transform: scale(0.60, 0.60) rotate(830deg); }
+.rose.open > .petal:nth-child(11) { transform: scale(0.66, 0.66) rotate(913deg); }
+.rose.open > .petal:nth-child(12) { transform: scale(0.72, 0.72) rotate(996deg); }
+.rose.open > .petal:nth-child(13) { transform: scale(0.78, 0.78) rotate(1079deg); }
+.rose.open > .petal:nth-child(14) { transform: scale(0.84, 0.84) rotate(1162deg); }
+.rose.open > .petal:nth-child(15) { transform: scale(0.90, 0.90) rotate(1245deg); }
+.rose.open > .petal:nth-child(16) { transform: scale(0.96, 0.96) rotate(1328deg); }
+.rose.open > .petal:nth-child(17) { transform: scale(1.02, 1.02) rotate(1411deg); }
+.rose.open > .petal:nth-child(18) { transform: scale(1.08, 1.08) rotate(1494deg); }
+.rose.open > .petal:nth-child(19) { transform: scale(1.14, 1.14) rotate(1577deg); }
+.rose.open > .petal:nth-child(20) { transform: scale(1.20, 1.20) rotate(1660deg); }
+.rose.open > .petal:nth-child(21) { transform: scale(1.26, 1.26) rotate(1743deg); }
+.rose.open > .petal:nth-child(22) { transform: scale(1.32, 1.32) rotate(1826deg); }
+.rose.open > .petal:nth-child(23) { transform: scale(1.38, 1.38) rotate(1909deg); }
+.rose.open > .petal:nth-child(24) { transform: scale(1.44, 1.44) rotate(1992deg); }
+.rose.open > .petal:nth-child(25) { transform: scale(1.50, 1.50) rotate(2075deg); }
+.rose.open > .petal:nth-child(26) { transform: scale(1.56, 1.56) rotate(2158deg); }
+.rose.open > .petal:nth-child(27) { transform: scale(1.62, 1.62) rotate(2241deg); }
+.rose.open > .petal:nth-child(28) { transform: scale(1.68, 1.68) rotate(2324deg); }
+.rose.open > .petal:nth-child(29) { transform: scale(1.74, 1.74) rotate(2407deg); }
+.rose.open > .petal:nth-child(30) { transform: scale(1.80, 1.80) rotate(2490deg); }
+
 #prompt{
     all: none;
     text-transform: none;
