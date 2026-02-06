@@ -1,81 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
-    <title>Hey Hey ✨</title>
-    <link rel="icon" type="img/jpg" href="https://c4.wallpaperflare.com/wallpaper/812/187/770/kimi-no-na-wa-tachibana-taki-miyamizu-mitsuha-anime-wallpaper-preview.jpg">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style.css">
+  <title>Hey Hey ✨</title>
+  <link rel="icon" type="img/jpg" href="https://c4.wallpaperflare.com/wallpaper/812/187/770/kimi-no-na-wa-tachibana-taki-miyamizu-mitsuha-anime-wallpaper-preview.jpg">
 </head>
-    <script>
-  const rose = document.querySelector('.rose');
-  const promptEl = document.getElementById('prompt');
-
-  // Toggle on tap/click (mobile + desktop click)
-  function toggleRose(e) {
-    // prevent double-tap zoom / weird highlight on some mobile browsers
-    e.preventDefault?.();
-    rose.classList.toggle('open');
-    if (promptEl) promptEl.textContent = rose.classList.contains('open') ? 'Aww 🌹' : 'Touch the rose';
-  }
-
-  rose.addEventListener('click', toggleRose, { passive: false });
-  rose.addEventListener('touchstart', toggleRose, { passive: false });
-
-  // Optional: close when tapping outside the rose
-  document.addEventListener('click', (e) => {
-    if (!rose.contains(e.target)) rose.classList.remove('open');
-  });
-</script>
 
 <body>
-  
-<div class="rose">
-  <div class="petal"></div>
-  <div class="petal"></div>
-  <div class="petal"></div>
-  <div class="petal"></div>
-  <div class="petal"></div>
-  <div class="petal"></div>
-  <div class="petal"></div>
-  <div class="petal"></div>
-  <div class="petal"></div>
-  <div class="petal"></div>
-  <div class="petal"></div>
-  <div class="petal"></div>
-  <div class="petal"></div>
-  <div class="petal"></div>
-  <div class="petal"></div>
-  <div class="petal"></div>
-  <div class="petal"></div>
-  <div class="petal"></div>
-  <div class="petal"></div>
-  <div class="petal"></div>
-  <div class="petal"></div>
-  <div class="petal"></div>
-  <div class="petal"></div>
-  <div class="petal"></div>
-  <div class="petal"></div>
-  <div class="petal"></div>
-  <div class="petal"></div>
-  <div class="petal"></div>
-  <div class="petal"></div>
-  <div class="petal"></div>
-  <div class="text">
+
+  <div class="rose" id="rose">
+    <div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div>
+    <div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div>
+    <div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div>
+    <div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div>
+    <div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div>
+    <div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div>
+
+    <div class="text">
       <span>Happy Rose Day ✨</span>
+    </div>
   </div>
-</div>
-<span id="prompt">Touch the rose</span>
 
-<div style="display: none;">
-  <audio autoplay="" loop="" controls="">
-    <source src="Song.mp3" type="audio/mp3">
-  </audio>
-</div>
+  <span id="prompt">Touch the rose</span>
 
-<h1>By Your are my rose 😌✨</h1>
+  <div style="display:none;">
+    <!-- NOTE: your uploaded file is song.mp3 (lowercase). Match the filename exactly. -->
+    <audio id="bgm" loop controls>
+      <source src="song.mp3" type="audio/mp3">
+    </audio>
+  </div>
+
+  <h1>By Your are my rose 😌✨</h1>
+
+  <!-- ✅ Script AFTER elements exist -->
+  <script>
+    const rose = document.querySelector('.rose');
+    const promptEl = document.getElementById('prompt');
+    const bgm = document.getElementById('bgm');
+
+    function toggleRose(e) {
+      // iOS Safari: prevent the “ghost click” / scroll weirdness
+      e.preventDefault();
+
+      rose.classList.toggle('open');
+
+      if (promptEl) {
+        promptEl.textContent = rose.classList.contains('open')
+          ? 'Happy Rose Day ✨'
+          : 'Touch the rose';
+      }
+
+      // Optional: start music on first tap (mobile blocks autoplay until user gesture)
+      if (bgm && bgm.paused) {
+        bgm.play().catch(() => {});
+      }
+    }
+
+    // Pointer events work best across mobile + desktop
+    rose.addEventListener('pointerdown', toggleRose, { passive: false });
+
+    // Fallbacks (older browsers)
+    rose.addEventListener('touchstart', toggleRose, { passive: false });
+    rose.addEventListener('click', toggleRose, { passive: false });
+
+    // Optional: tap outside to close
+    document.addEventListener('pointerdown', (e) => {
+      if (!rose.contains(e.target)) rose.classList.remove('open');
+    });
+  </script>
 </body>
-
 </html>
-
