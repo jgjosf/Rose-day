@@ -8,6 +8,27 @@
     <link rel="icon" type="img/jpg" href="https://c4.wallpaperflare.com/wallpaper/812/187/770/kimi-no-na-wa-tachibana-taki-miyamizu-mitsuha-anime-wallpaper-preview.jpg">
 
 </head>
+    <script>
+  const rose = document.querySelector('.rose');
+  const promptEl = document.getElementById('prompt');
+
+  // Toggle on tap/click (mobile + desktop click)
+  function toggleRose(e) {
+    // prevent double-tap zoom / weird highlight on some mobile browsers
+    e.preventDefault?.();
+    rose.classList.toggle('open');
+    if (promptEl) promptEl.textContent = rose.classList.contains('open') ? 'Aww 🌹' : 'Touch the rose';
+  }
+
+  rose.addEventListener('click', toggleRose, { passive: false });
+  rose.addEventListener('touchstart', toggleRose, { passive: false });
+
+  // Optional: close when tapping outside the rose
+  document.addEventListener('click', (e) => {
+    if (!rose.contains(e.target)) rose.classList.remove('open');
+  });
+</script>
+
 <body>
   
 <div class="rose">
