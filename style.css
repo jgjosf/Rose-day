@@ -22,6 +22,20 @@ p{
   color: aqua;
 
 }
+/* ❤️ Bottom-right love text */
+.love-note {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(1.4rem, 4vw, 2rem);
+  color: #000;            /* black looks elegant on light bg */
+  opacity: 0.85;
+  z-index: 10;            /* above background, below rose if needed */
+  pointer-events: none;  /* won’t block touches */
+  white-space: nowrap;
+}
+
 .rose {
   position: relative;
   width: 100px;
